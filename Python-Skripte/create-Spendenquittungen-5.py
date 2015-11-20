@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -31,7 +32,7 @@ latex_jinja_env = jinja2.Environment(
 )
 
 # Laden des Templates aus einer Datei
-template = latex_jinja_env.get_template('Sammelbestaetigung_Geldzuwendung.tex')
+template = latex_jinja_env.get_template('../Sammelbestaetigung_Geldzuwendung.tex')
 
 def getDBsettings():
 	""" 
@@ -63,7 +64,8 @@ transactions_cursor = db.cursor()
 master_cursor.execute("select ID from Stammdaten where ID in (Select distinct(Klasse) from Buchungen)") 
 
 # definiert das Verzeichnis für die TeX und PDF Dateien
-os.chdir("E:/_output/")
+#os.chdir("E:/_output/")
+#os.chdir("/tmp/")
 
 # Welche Kategorien sollen mit ausgegeben werden
 kategorien = "('Aufnahmegebühr','Zweckspende','Mitgliedsbeitrag','Spende')"
